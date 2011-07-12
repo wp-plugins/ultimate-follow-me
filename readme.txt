@@ -1,7 +1,7 @@
 === Ultimate Follow Me ===
 Contributors: RussellYermal
 Donate link: http://freeblogfactory.com/
-Tags: social, follow, widgets
+Tags: social, follow, widgets, free blog factory
 Requires at least: 3.0
 Tested up to: 3.2
 Stable tag: trunk
@@ -53,4 +53,4 @@ Official release. Now hosted on WordPress SVN
 
 == Shameless Plug ==
 
-We built this for our thousands of users at [Free Blog Factory](http://FreeBlogFactory.com/ "Building better blogs"). If you want a reliable WordPress host that actually helps you use WordPress, check us out!
+We built this for our thousands of users at **[Free Blog Factory](http://FreeBlogFactory.com/ "Free Blog Factory")**. If you want a reliable WordPress host that actually helps you use WordPress, check us out!
