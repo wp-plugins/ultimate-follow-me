@@ -3,7 +3,7 @@
 Plugin Name: Ultimate Follow Me Plugin by Free Blog Factory
 Plugin URI: http://FreeBlogFactory.com
 Description: We were tired of confusing and bulky "follow me" plugins for wordpress so we decided to make our own. Showcase any or all of your facebook, twitter, linkedin, youtube, and buzz profiles with your choice of button design.
-Version: 1.1
+Version: 1.2
 Author: Free Blog Factory
 Author URI: http://FreeBlogFactory.com
 License: GPL2
@@ -26,7 +26,7 @@ License: GPL2
 */
 //error_reporting(E_ALL);
 
-add_action("widgets_init", array('ultimate_follow_me', 'register'));
+	add_action("widgets_init", array('ultimate_follow_me', 'register'));
 
 	$path_to_styles = WP_PLUGIN_URL . '/ultimate-follow-me';
 	$preview_image = 'preview.png';
