@@ -3,7 +3,7 @@
 Plugin Name: Ultimate Follow Me Plugin by Free Blog Factory
 Plugin URI: http://FreeBlogFactory.com
 Description: We were tired of confusing and bulky "follow me" plugins for wordpress so we decided to make our own. Showcase any or all of your facebook, twitter, linkedin, youtube, and buzz profiles with your choice of button design.
-Version: 1.2
+Version: 1.2.1
 Author: Free Blog Factory
 Author URI: http://FreeBlogFactory.com
 License: GPL2
@@ -85,12 +85,7 @@ License: GPL2
 		if($display != 'on')
 			return;
 			
-		$site_url = wp_guess_url();
-			
-		if($site_url[strlen($site_url)-1] != '/')
-			$site_url .= '/';	
-			
-		$url = $site_url."feed";
+		$url = get_bloginfo('rss2_url');;
 			
 		$img = 	'<img src="'.get_rss_image($style_id).'" border="0" style="margin:3px;"/>';
 			
@@ -147,8 +142,11 @@ License: GPL2
 	}		 
 
 	function update_options($data){
-		if(isset($_POST['uf_display_rss']))	
-			$data['uf_display_rss'] = $_POST['uf_display_rss'];			
+	
+		if($_POST['uf_display_rss']=='on')	
+			$data['uf_display_rss'] = 'on';
+		else
+			$data['uf_display_rss'] = 'off';		
 		if(isset($_POST['uf_fb_id']))
 			$data['uf_fb_id'] = $_POST['uf_fb_id'];
 		if(isset($_POST['uf_tw_id']))
