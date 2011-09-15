@@ -4,7 +4,7 @@ Donate link: http://freeblogfactory.com/
 Tags: social, follow, widgets, free blog factory
 Requires at least: 3.0
 Tested up to: 3.2
-Stable tag: trunk
+Stable tag: 1.2.1
 
 We were tired of confusing and bulky "follow me" plugins for wordpress so we decided to make our own. 
 
@@ -46,10 +46,17 @@ Enter your facebook username (ie, facebook.com/username) or profile id (ie, face
 * Started counting versions.
 * Removed Google Buzz (RIP)
 
+= 1.2.1 =
+* Fixed RSS feed not working without custom permalinks
+* Fixed RSS feed always displaying
+
 == Upgrade Notice ==
 
 = 1.2 =
 Official release. Now hosted on WordPress SVN
+
+= 1.2.1 =
+Two small bug fixes. No risk in upgrading.
 
 == Shameless Plug ==
 
