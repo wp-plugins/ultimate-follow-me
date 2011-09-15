@@ -4,7 +4,7 @@ Donate link: http://freeblogfactory.com/
 Tags: social, follow, widgets, free blog factory
 Requires at least: 3.0
 Tested up to: 3.2
-Stable tag: 1.2
+Stable tag: trunk
 
 We were tired of confusing and bulky "follow me" plugins for wordpress so we decided to make our own. 
 
