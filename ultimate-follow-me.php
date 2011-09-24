@@ -3,7 +3,7 @@
 Plugin Name: Ultimate Follow Me Plugin by Free Blog Factory
 Plugin URI: http://FreeBlogFactory.com
 Description: We were tired of confusing and bulky "follow me" plugins for wordpress so we decided to make our own. Showcase any or all of your facebook, twitter, linkedin, youtube, and buzz profiles with your choice of button design.
-Version: 1.2.2
+Version: 1.3
 Author: Free Blog Factory
 Author URI: http://FreeBlogFactory.com
 License: GPL2
@@ -31,6 +31,7 @@ License: GPL2
 	$path_to_styles = WP_PLUGIN_URL . '/ultimate-follow-me';
 	$preview_image = 'preview.png';
 	$twitter_image = 'twitter.png';
+	$plus_image = 'plus.png';
 	$facebook_image = 'facebook.png';	
 	$youtube_image = 'youtube.png';	
 	$linkedin_image = 'linkedin.png';	
@@ -58,6 +59,16 @@ License: GPL2
 		$url = "http://twitter.com/$id";
 			
 		$img = 	'<img src="'.get_twitter_image($style_id).'" border="0" style="margin:3px;"/>';
+			
+		return '<a href="'.$url.'" target="_blank">'.$img.'</a>';
+	}
+	function create_plus_tag($id, $style_id){
+		if(strlen($id) < 1)
+			return;
+			
+		$url = "https://plus.google.com/u/1/$id/posts";
+			
+		$img = 	'<img src="'.get_plus_image($style_id).'" border="0" style="margin:3px;"/>';
 			
 		return '<a href="'.$url.'" target="_blank">'.$img.'</a>';
 	}
@@ -119,7 +130,12 @@ License: GPL2
 		global $path_to_styles;
 		global $twitter_image;		
 		return $path_to_styles.'/style'.$style_id.'/'.$twitter_image;
-	}		
+	}
+	function get_plus_image($style_id){
+		global $path_to_styles;
+		global $plus_image;		
+		return $path_to_styles.'/style'.$style_id.'/'.$plus_image;
+	}			
 	function get_youtube_image($style_id){
 		global $path_to_styles;
 		global $youtube_image;		
@@ -151,6 +167,8 @@ License: GPL2
 			$data['uf_fb_id'] = $_POST['uf_fb_id'];
 		if(isset($_POST['uf_tw_id']))
 			$data['uf_tw_id'] = $_POST['uf_tw_id'];
+		if(isset($_POST['uf_gp_id']))
+			$data['uf_gp_id'] = $_POST['uf_gp_id'];
 		if(isset($_POST['uf_yt_id']))
 			$data['uf_yt_id'] = $_POST['uf_yt_id'];
 		if(isset($_POST['uf_li_id']))
@@ -195,14 +213,19 @@ class ultimate_follow_me {
             </tr>
             <tr>
 	  			
-                <td align="right"><label>Youtube username <small>(http://www.youtube.com/<u>username</u>)</small>:</label></td>
-                <td><input name="uf_yt_id" type="text" value="<?=$data['uf_yt_id']?>" /></td>
-            </tr>
-<tr>
-	  			
                 <td align="right"><label>Linkedin username <small>(http://www.linkedin.com/in/<u>username</u>)</small>:</label></td>
                 <td><input name="uf_li_id" type="text" value="<?=$data['uf_li_id']?>" /></td>
-            </tr>              
+            </tr> 
+            <tr>
+	  			
+                <td align="right"><label>Google Plus user ID <small>(https://plus.google.com/u/1/<u>user ID</u>)</small>:</label></td>
+                <td><input name="uf_gp_id" type="text" value="<?=$data['uf_gp_id']?>" /></td>
+            </tr> 
+            <tr>
+	  			
+                <td align="right"><label>Youtube username <small>(http://www.youtube.com/<u>username</u>)</small>:</label></td>
+                <td><input name="uf_yt_id" type="text" value="<?=$data['uf_yt_id']?>" /></td>
+            </tr>       
 <tr>
                 <td align="right"><label>Email address or URL to contact us page:</label></td>
                 <td><input name="uf_email_address" type="text" value="<?=$data['uf_email_address']?>" /></td>
@@ -249,8 +272,9 @@ class ultimate_follow_me {
     	  echo '<div id="ultimate-follow-me">';
 		  echo create_facebook_tag($data['uf_fb_id'], $data['uf_style']);
 		  echo create_twitter_tag($data['uf_tw_id'], $data['uf_style']);
-		  echo create_youtube_tag($data['uf_yt_id'], $data['uf_style']);
 		  echo create_linkedin_tag($data['uf_li_id'], $data['uf_style']);
+		  echo create_plus_tag($data['uf_gp_id'], $data['uf_style']);
+		  echo create_youtube_tag($data['uf_yt_id'], $data['uf_style']);
 		  echo create_email_tag($data['uf_email_address'], $data['uf_style']);
 		  echo create_rss_tag($data['uf_display_rss'], $data['uf_style']);
 		  echo '</div>';
