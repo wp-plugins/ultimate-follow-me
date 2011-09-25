@@ -4,7 +4,7 @@ Donate link: http://freeblogfactory.com/
 Tags: social, follow, widgets, free blog factory
 Requires at least: 3.0
 Tested up to: 3.2
-Stable tag: 1.3
+Stable tag: 1.3.1
 
 We were tired of confusing and bulky "follow me" plugins for wordpress so we decided to make our own. 
 
@@ -42,6 +42,9 @@ Enter your facebook username (ie, facebook.com/username) or profile id (ie, face
 
 == Changelog ==
 
+= 1.3.1 =
+* Fixed pesky RSS display option
+
 = 1.3 =
 * Enables Google Plus (read widget menu for help finding your ID)
 * PSDs included for easy custom icon modification : )
@@ -58,6 +61,9 @@ Enter your facebook username (ie, facebook.com/username) or profile id (ie, face
 * Removed Google Buzz (RIP)
 
 == Upgrade Notice ==
+
+= 1.3.1 =
+* Fixed pesky RSS display option. No risk in upgrading. Brought to you by **[Free Blog Factory](http://FreeBlogFactory.com/ "Free Blog Factory")**
 
 = 1.3 =
 Enables google plus and PSD's included for modification. No risk in upgrading. Brought to you by **[Free Blog Factory](http://FreeBlogFactory.com/ "Free Blog Factory")**

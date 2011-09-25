@@ -3,7 +3,7 @@
 Plugin Name: Ultimate Follow Me Plugin by Free Blog Factory
 Plugin URI: http://FreeBlogFactory.com
 Description: We were tired of confusing and bulky "follow me" plugins for wordpress so we decided to make our own. Showcase any or all of your facebook, twitter, linkedin, youtube, and buzz profiles with your choice of button design.
-Version: 1.3
+Version: 1.3.1
 Author: Free Blog Factory
 Author URI: http://FreeBlogFactory.com
 License: GPL2
@@ -159,10 +159,14 @@ License: GPL2
 
 	function update_options($data){
 	
+		if(empty($_POST))
+			return;
+	
 		if($_POST['uf_display_rss']=='on')	
 			$data['uf_display_rss'] = 'on';
 		else
-			$data['uf_display_rss'] = 'off';		
+			$data['uf_display_rss'] = 'off';
+					
 		if(isset($_POST['uf_fb_id']))
 			$data['uf_fb_id'] = $_POST['uf_fb_id'];
 		if(isset($_POST['uf_tw_id']))
@@ -194,7 +198,12 @@ class ultimate_follow_me {
 	  	$title = $data['uf_title'];
 	  else
 	  	$title = "Follow Me On The Web!";
-	  
+	  	
+	  $check_rss='';	
+	  	
+	  if($data['uf_display_rss']=='on')
+	  	$check_rss='checked';
+
 	  ?>
       	<table>
             <tr>
@@ -232,7 +241,7 @@ class ultimate_follow_me {
             </tr> 
             <tr>
                 <td align="right"><label>Display rss feed?</label></td>
-                <td><input name="uf_display_rss" type="checkbox" <?php if($data['uf_display_rss']=='on') echo 'checked'; ?>/></td>
+                <td><input name="uf_display_rss" type="checkbox" <?=$check_rss?>/></td>
             </tr>              
 <tr>
             	<td colspan="3" align="center">
