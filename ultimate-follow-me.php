@@ -3,7 +3,7 @@
 Plugin Name: Ultimate Follow Me Plugin by Free Blog Factory
 Plugin URI: http://FreeBlogFactory.com
 Description: We were tired of confusing and bulky "follow me" plugins for wordpress so we decided to make our own. Showcase any or all of your facebook, twitter, linkedin, youtube, and buzz profiles with your choice of button design.
-Version: 1.3.2
+Version: 1.3.3
 Author: Free Blog Factory
 Author URI: http://FreeBlogFactory.com
 License: GPL2
@@ -78,9 +78,9 @@ License: GPL2
 			
 		$url = "http://youtube.com/$id";
 			
-		$img = 	'<img src="'.get_youtube_image($style_id).'" border="0" class="nofancybox" style="margin:3px;"/>';
+		$img = 	'<img src="'.get_youtube_image($style_id).'" border="0" style="margin:3px;"/>';
 			
-		return '<a href="'.$url.'" target="_blank">'.$img.'</a>';
+		return '<a href="'.$url.'" target="_blank" class="nofancybox">'.$img.'</a>';
 	}	
 	function create_linkedin_tag($id, $style_id){
 		if(strlen($id) < 1)
